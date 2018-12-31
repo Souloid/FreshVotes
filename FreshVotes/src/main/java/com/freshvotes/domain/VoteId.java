@@ -9,18 +9,19 @@ import javax.persistence.ManyToOne;
 public class VoteId implements Serializable {
 	
 	private static final long serialVersionUID = 6202269445639364170L;
-	
+	@ManyToOne
 	private User user;
+	@ManyToOne
 	private Feature feature;
 	
-	@ManyToOne
+	//@ManyToOne
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
 	}
-	@ManyToOne
+	//@ManyToOne
 	public Feature getFeature() {
 		return feature;
 	}
