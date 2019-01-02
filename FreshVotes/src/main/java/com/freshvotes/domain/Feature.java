@@ -10,15 +10,18 @@ public class Feature {
 	
 	@Id @GeneratedValue (strategy=GenerationType.IDENTITY)
 	private Long id;
+	
 	private String title;
 	private String description;
 	private String name;
 	
 	
-	//@Id @GeneratedValue (strategy=GenerationType.IDENTITY)
+	//@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	public long getId() {
 		return id;
 	}
+	
+	
 	public void setId(long id) {
 		this.id = id;
 	}
