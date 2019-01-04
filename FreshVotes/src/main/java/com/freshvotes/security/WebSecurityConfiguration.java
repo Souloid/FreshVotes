@@ -30,14 +30,18 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.userDetailsService(userDetailsService)
 		.passwordEncoder(getPasswordEncoder());
 
+		
+		/*
 		// this is in memory, for demonstration not learning purposes
-//		auth.inMemoryAuthentication()
-//		.passwordEncoder(getPasswordEncoder())
-//		.withUser("username1")
-//		.password(getPasswordEncoder().encode("password1"))
-//		.roles("USER");
+		auth.inMemoryAuthentication()
+		.passwordEncoder(getPasswordEncoder())
+		.withUser("username1")
+		.password(getPasswordEncoder().encode("password1"))
+		.roles("USER");
 		// this is commented out because i'm using a memory credential
 		// super.configure(auth);
+		 * 
+		 */
 	}
 
 	// ok so what access should i give you?
@@ -49,6 +53,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				// re-enabling this to use CSRF protection (Cross Site Request Forgery).
 				// .csrf().disable()
 				.authorizeRequests()
+				//permit everyone to see the registration page
+				.antMatchers("/register").permitAll()
 				// allowing everyone to see the root page or index if you wanna call it that
 				.antMatchers("/").permitAll().anyRequest().hasRole("USER").and().formLogin()
 				// allowing everyone to view the login page
